@@ -1,0 +1,31 @@
+# TechGear Product Catalog
+
+## Smartphones
+TG-Phone Pro X
+- Price: $899
+- 6.7" OLED display
+- 256GB storage
+- 5G capable
+- Available in: Black, Silver
+
+TG-Phone Lite
+- Price: $499
+- 6.1" LCD display
+- 128GB storage
+- 4G/5G
+- Available in: Black, Blue
+
+## Laptops
+TG-Book Elite
+- Price: $1299
+- 15.6" 4K display
+- Intel i7, 16GB RAM
+- 512GB SSD
+- Windows 11 Pro
+
+TG-Book Basic
+- Price: $699
+- 14" HD display
+- Intel i5, 8GB RAM
+- 256GB SSD
+- Windows 11 Home

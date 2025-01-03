@@ -1,0 +1,19 @@
+# TechGear Store Policies
+
+## Shipping Policy
+- Free standard shipping on orders over $50
+- Express shipping available for additional $15
+- International shipping rates vary by location
+- All orders processed within 24 hours
+
+## Return Policy
+- 30-day return window for unopened items
+- 14-day return window for opened items
+- Return shipping paid by customer
+- Refunds processed within 5 business days
+
+## Warranty
+- 1-year standard warranty on all products
+- Extended warranty available for purchase
+- Warranty covers manufacturing defects
+- Software issues not covered by warranty
