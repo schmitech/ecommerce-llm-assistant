@@ -1,43 +1,39 @@
 import os
 import json
-from typing import List, Dict
+from pathlib import Path
 
-def format_training_example(question: str, answer: str) -> str:
-    """Format a Q&A pair into training format."""
-    return f"<|im_start|>user\n{question}<|im_end|>\n<|im_start|>assistant\n{answer}<|im_end|>\n"
-
-def create_training_data() -> List[Dict]:
-    """Create training examples from product catalog and policies."""
-    training_data = []
+def prepare_data():
+    print("Starting data preparation...")
     
-    # Example training pairs
-    examples = [
-        {
-            "question": "What's the price of the TG-Phone Pro X?",
-            "answer": "The TG-Phone Pro X is priced at $899. It features a 6.7\" OLED display, 256GB storage, and is 5G capable."
-        },
-        {
-            "question": "What's your return policy?",
-            "answer": "We offer a 30-day return window for unopened items and a 14-day return window for opened items. Return shipping is paid by the customer, and refunds are processed within 5 business days."
-        },
-        # Add more examples as needed
-    ]
+    # Get project root directory
+    root_dir = Path(__file__).parent.parent
+    data_dir = root_dir / 'data' / 'sample'
     
-    for example in examples:
-        training_data.append(format_training_example(example["question"], example["answer"]))
+    # Check if required files exist
+    required_files = ['products.txt', 'faq.txt', 'policies.txt']
+    for file in required_files:
+        file_path = data_dir / file
+        if not file_path.exists():
+            print(f"Error: Required file {file} not found in {data_dir}")
+            return False
+        print(f"✓ Found {file}")
     
-    return training_data
-
-def main():
-    training_data = create_training_data()
-    
-    # Save formatted training data
-    output_dir = "data/training"
-    os.makedirs(output_dir, exist_ok=True)
-    
-    with open(f"{output_dir}/training_data.jsonl", "w") as f:
-        for example in training_data:
-            f.write(json.dumps({"text": example}) + "\n")
+    try:
+        # Read and validate files
+        for file in required_files:
+            with open(data_dir / file, 'r', encoding='utf-8') as f:
+                content = f.read()
+                if not content.strip():
+                    print(f"Warning: {file} appears to be empty")
+                else:
+                    print(f"✓ Successfully validated {file}")
+        
+        print("\nData preparation completed successfully!")
+        return True
+        
+    except Exception as e:
+        print(f"Error during data preparation: {str(e)}")
+        return False
 
 if __name__ == "__main__":
-    main()
+    prepare_data()

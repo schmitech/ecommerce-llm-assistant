@@ -1,16 +1,23 @@
 # TechGear Store Policies
 
 ## Shipping Policy
-- Free standard shipping on orders over $50
-- Express shipping available for additional $15
-- International shipping rates vary by location
-- All orders processed within 24 hours
+- Free domestic shipping on orders over $50
+- International shipping available to 150+ countries
+- International shipping costs:
+  * Standard (10-15 business days): $15-30
+  * Express (3-5 business days): $35-50
+- Import duties and taxes are buyer's responsibility
+- All orders include tracking information
+- Insurance included on orders over $200
 
 ## Return Policy
-- 30-day return window for unopened items
-- 14-day return window for opened items
-- Return shipping paid by customer
-- Refunds processed within 5 business days
+- 30-day return window for unopened items with original packaging and receipt
+- 14-day return window for opened items in resalable condition
+- Defective items can be returned within 30 days for full refund or replacement
+- Return shipping is free for defective items
+- Other returns require customer to pay return shipping
+- Refunds are processed within 5 business days to original payment method
+- Items must be returned with all accessories and documentation
 
 ## Warranty
 - 1-year standard warranty on all products

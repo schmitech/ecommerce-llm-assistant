@@ -1,47 +1,48 @@
 import subprocess
-from typing import List, Dict
 import json
+from pathlib import Path
 
-def query_model(prompt: str) -> str:
-    """Query the Ollama model with a prompt."""
-    cmd = ["ollama", "run", "techgear", prompt]
-    result = subprocess.run(cmd, capture_output=True, text=True)
-    return result.stdout.strip()
-
-def run_test_cases() -> List[Dict]:
-    """Run a series of test cases and record results."""
-    test_cases = [
-        {
-            "category": "Product Info",
-            "query": "What are the specs of the TG-Phone Pro X?",
-            "expected": "Contains: 6.7\" OLED, 256GB, 5G"
-        },
-        {
-            "category": "Policy",
-            "query": "What's your return policy for opened items?",
-            "expected": "Contains: 14-day return window"
-        },
-        # Add more test cases
+def test_model():
+    print("Testing TechGear AI Assistant...\n")
+    
+    # Test queries to verify different capabilities
+    test_queries = [
+        "What are the specifications of the TG-Phone Pro X?",
+        "What's your return policy for electronics?",
+        "Do you offer international shipping?",
     ]
     
-    results = []
-    for test in test_cases:
-        response = query_model(test["query"])
-        results.append({
-            "category": test["category"],
-            "query": test["query"],
-            "response": response,
-            "expected": test["expected"]
-        })
-    
-    return results
-
-def main():
-    results = run_test_cases()
-    
-    # Save test results
-    with open("tests/test_results.json", "w") as f:
-        json.dump(results, f, indent=2)
+    try:
+        for query in test_queries:
+            print(f"\n🔹 Testing query: {query}")
+            print("-" * 100)
+            
+            # Run ollama command and capture output
+            result = subprocess.run(
+                ["ollama", "run", "techgear", query],
+                capture_output=True,
+                text=True
+            )
+            
+            if result.returncode == 0:
+                print("Response:")
+                print(result.stdout.strip())
+            else:
+                print("❌ Error running query:")
+                print(result.stderr)
+                return False
+            
+            print("-" * 50)
+            
+        print("\n✅ All test queries completed successfully!")
+        return True
+        
+    except FileNotFoundError:
+        print("\n❌ Error: Ollama not found. Please make sure Ollama is installed and accessible in your PATH")
+        return False
+    except Exception as e:
+        print(f"\n❌ Error during testing: {str(e)}")
+        return False
 
 if __name__ == "__main__":
-    main()
+    test_model()

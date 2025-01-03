@@ -1,0 +1,15 @@
+# Core dependencies
+numpy
+pandas
+
+# Jupyter notebooks
+jupyter
+notebook
+ipykernel
+
+# Testing
+pytest
+
+# Optional visualization
+matplotlib
+seaborn 
